@@ -8,12 +8,12 @@ create table departments (
 
     -----------------------------------------------------------------------------------------
     create table jobs (
-        job_id number (2) primary key,
+        job_id number (2) ,
         job_title varchar2(30) not null,
         min_salary number(10, 2),
         max_salary number(10, 2),
         dept_type varchar2(30) not null,
-        CONSTRAINT pk_department PRIMARY KEY (deptno)
+        CONSTRAINT pk_job PRIMARY KEY (job_id)
 
     );
     -----------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ create table departments (
         EMAIL VARCHAR2(50),
         GENDER VARCHAR2(10),
         CONSTRAINT pk_employee PRIMARY KEY (empno),
-        CONSTRAINT fk_employee_department FOREIGN KEY (deptno) );
+        CONSTRAINT fk_employee_department FOREIGN KEY (deptno) ) REFERENCES departments(deptno);
     
     ------------------------------------------------------------------------------------------
     create table projects (
